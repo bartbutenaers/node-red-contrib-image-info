@@ -1,0 +1,28 @@
+{
+    "name"         : "node-red-contrib-image-info",
+    "version"      : "0.0.1",
+    "description"  : "A Node Red node to get information about an image",
+    "dependencies": {
+       "image-size": "0.6.2",
+       "is-base64": "0.0.4",
+       "base64-js": "1.2.3"
+    },
+    "author": {
+        "name": "Bart Butenaers"
+    },
+    "license": "Apache-2.0",
+    "keywords": [ "node-red", "image", "width", "length", "format", "resolution" ],
+    "bugs": {
+        "url": "https://github.com/bartbutenaers/node-red-contrib-image-info/issues"
+    },
+    "homepage": "https://github.com/bartbutenaers/node-red-contrib-image-info",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bartbutenaers/node-red-contrib-image-info.git"
+    },
+    "node-red"     : {
+        "nodes": {
+            "image-info": "image_info.js"
+        }
+    }
+}

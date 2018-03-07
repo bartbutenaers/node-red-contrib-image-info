@@ -19,7 +19,7 @@
     var isBase64 = require('is-base64');
     var base64js = require('base64-js');
 
-    function ImageInformationNode(n) {
+    function ImageInfoNode(n) {
         RED.nodes.createNode(this,n);
         
         var node = this;
@@ -58,7 +58,11 @@
 
             node.send(msg);
         });
+        
+        node.on("close", function() {
+            node.status({});
+        });
     }
 
-    RED.nodes.registerType("image-information",ImageInformationNode);
+    RED.nodes.registerType("image-info",ImageInfoNode);
 }

@@ -11,7 +11,7 @@
   limitations under the License.
 -->
 <script type="text/javascript">
-    RED.nodes.registerType('image-information',{
+    RED.nodes.registerType('image-info',{
         category: 'function',
         color: '#a6bbcf',
         defaults: {
@@ -19,21 +19,21 @@
         },
         inputs:1,
         outputs:1,
-        icon: "image.png",
+        icon: "resolution.png",
         label: function() {
             return this.name||"Image info";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="image-information">
+<script type="text/x-red" data-template-name="image-info">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="image-information">
+<script type="text/x-red" data-help-name="image-info">
     <p>A Node Red node to get information about an image.</p>
     <p>The supported image formats can be found <a href="https://www.npmjs.com/package/image-size" target="_blank">here</a>.</p>
 </script>

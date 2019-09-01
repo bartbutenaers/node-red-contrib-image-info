@@ -43,16 +43,25 @@
             }
             
             if (buffer) {
-                var imageInfo = sizeOf(buffer);
-                
-                msg.type = imageInfo.type;
-                msg.width = imageInfo.width;
-                msg.height = imageInfo.height;
-            
-                var status = imageInfo.type + "(" + imageInfo.width + "x" + imageInfo.height + ")";       
-                node.status({fill:"blue",shape:"dot",text:status});
+                var imageInfo;
+
+                try {
+                    imageInfo = sizeOf(buffer);
+                    
+                    msg.type = imageInfo.type;
+                    msg.width = imageInfo.width;
+                    msg.height = imageInfo.height;
+                    
+                    var status = imageInfo.type + "(" + imageInfo.width + "x" + imageInfo.height + ")";       
+                    node.status({fill:"blue",shape:"dot",text:status});
+                }
+                catch (err) {
+                    node.error("Unknown image format");
+                    node.status({fill:"red",shape:"dot",text:"unknown format"});
+                }
             }
             else {
+                node.error("Invalid input type");
                 node.status({fill:"red",shape:"dot",text:"invalid input"});
             }
 

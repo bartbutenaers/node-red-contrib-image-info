@@ -30,3 +30,18 @@ The information will be displayed in the node status, but the same information w
 + ***Height***: the heigth will be stored in the output `msg.heigth`.
 
 ![Debug](https://raw.githubusercontent.com/bartbutenaers/node-red-contrib-image-info/master/images/info_debug.png)
+
+## Error handling
+Two different type of error situations will be handled, which becomes visible both in the node status and in the log:
+
++ ***Invalid input***: The input needs to be a Buffer or a string.  If the string is not base64 encoded, then this node will automatically encode it.  However when another input type is passed in the `msg.payload` then node status will become *"invalid input"*.  In the following example a simple timestamp is being injected:
+
+   ![image](https://user-images.githubusercontent.com/14224149/64072876-787b0680-cc96-11e9-9adf-4531df33b58a.png)
+   
+   In the log a line with *"Invalid input type"* will appear.
+   
++ ***Unknown format***: when the input type is correct but the image information cannot be determined, then the node status will become *"unknown format"*.  In the following example a random buffer (representing *corrupt image data*) is being injected:
+
+   ![image](https://user-images.githubusercontent.com/14224149/64073076-5e8ef300-cc99-11e9-926e-fb7e74912e8f.png)
+
+   In the log a line with *"Unknown image format"* will appear.

@@ -56,7 +56,7 @@
                     node.status({fill:"blue",shape:"dot",text:status});
                 }
                 catch (err) {
-                    node.error("Unknown image format");
+                    node.error("Unknown image format: " + err);
                     node.status({fill:"red",shape:"dot",text:"unknown format"});
                 }
             }
